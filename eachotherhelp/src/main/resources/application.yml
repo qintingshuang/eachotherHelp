@@ -1,0 +1,34 @@
+#主配置（原型）环境
+spring:
+  profiles:
+    active: dev
+
+---
+
+
+#mysql配置
+spring:
+  datasource:
+    drive-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.99.100:3306/eachotherhelp?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+  #开发环境
+  profiles: dev
+
+#端口
+server:
+  port: 8210
+
+#myBatis配置,这个配置记得不能有.是/,另外不要拼写错误
+mybatis:
+  mapper-locations: classpath*:com/qintingshuang/eachotherhelp/mapper/**/*Mapper.xml
+  type-aliases-package: com.qintingshuang.eachotherhelp.model
+  configuration:
+    map-underscore-to-camel-case: true  #这个字段映射中_和大写的转换
+
+#showlog
+#
+#logging:
+#  level: info
+
